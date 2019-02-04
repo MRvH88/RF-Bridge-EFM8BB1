@@ -166,6 +166,16 @@ SI_SEGMENT_VARIABLE(PROTOCOL_START(DC90)[], static uint8_t, SI_SEG_CODE) = { 2, 
 SI_SEGMENT_VARIABLE(PROTOCOL_BIT0(DC90)[], static uint8_t, SI_SEG_CODE) = { 0, 1 };
 SI_SEGMENT_VARIABLE(PROTOCOL_BIT1(DC90)[], static uint8_t, SI_SEG_CODE) = { 1, 0 };
 
+/*
+ * Brilliant Lighting Model #17698
+ */
+#define Brilliant_Lighting
+
+SI_SEGMENT_VARIABLE(PROTOCOL_PULSES(Brilliant_Lighting)[], static uint16_t, SI_SEG_CODE) = { 300, 660, 9860 };
+SI_SEGMENT_VARIABLE(PROTOCOL_START(Brilliant_Lighting)[], static uint8_t, SI_SEG_CODE) = { 2, 0 };
+SI_SEGMENT_VARIABLE(PROTOCOL_BIT0(Brilliant_Lighting)[], static uint8_t, SI_SEG_CODE) = { 0, 1 };
+SI_SEGMENT_VARIABLE(PROTOCOL_BIT1(Brilliant_Lighting)[], static uint8_t, SI_SEG_CODE) = { 1, 0 };
+
 SI_SEGMENT_VARIABLE(PROTOCOL_DATA[], static struct BUCKET_PROTOCOL_DATA, SI_SEG_CODE) =
 {
 		/*
@@ -274,6 +284,18 @@ SI_SEGMENT_VARIABLE(PROTOCOL_DATA[], static struct BUCKET_PROTOCOL_DATA, SI_SEG_
 			{ &PROTOCOL_BIT1(DC90), ARRAY_LENGTH(PROTOCOL_BIT1(DC90)) },
 			40,
 			false
+		},
+
+		/*
+		 * Brilliant Lighting Model #17698
+		 */
+		{
+			{ &PROTOCOL_PULSES(Brilliant_Lighting), ARRAY_LENGTH(PROTOCOL_PULSES(Brilliant_Lighting)) },
+			{ &PROTOCOL_START(Brilliant_Lighting), ARRAY_LENGTH(PROTOCOL_START(Brilliant_Lighting)) },
+			{ &PROTOCOL_BIT0(Brilliant_Lighting), ARRAY_LENGTH(PROTOCOL_BIT0(Brilliant_Lighting)) },
+			{ &PROTOCOL_BIT1(Brilliant_Lighting), ARRAY_LENGTH(PROTOCOL_BIT1(Brilliant_Lighting)) },
+			21,
+			true
 		}
 };
 
